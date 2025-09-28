@@ -30,19 +30,21 @@ public class FinancialCalculators {
 
     public static void mortgageCalculator() {
         // mortgage calculator (minus taxes and insurance)
-        System.out.print("Principal amount(money borrowed): ");
-        int principal = Integer.parseInt(scanner.nextLine());
+        System.out.print("Loan amount: ");
+        double principal = Double.parseDouble(scanner.nextLine());
         System.out.println("$" + principal + "\n");
 
-        System.out.print("Interest rate: ");
-        int interestRate = Integer.parseInt(scanner.nextLine());
+        System.out.print("Interest rate percentage: ");
+        double interestRate = Double.parseDouble(scanner.nextLine());
         System.out.println(interestRate + "% \n");
+        interestRate = interestRate / 100;
 
         System.out.print("Loan length in years: ");
-        int loanLength = Integer.parseInt(scanner.nextLine());
+        double loanLength = Double.parseDouble(scanner.nextLine());
         System.out.println(loanLength);
 
-        //double mortgage = principal * (interestRate * (1 + interestRate))
-        System.out.println("Your monthly mortgage is $");
+        double n = loanLength * 12;
+        double mortgage = principal * (interestRate * Math.pow((1 + interestRate), n)) / (Math.pow((1 + interestRate), n) - 1);
+        System.out.printf("Your monthly mortgage is $%.2f",mortgage);
     }
 }
