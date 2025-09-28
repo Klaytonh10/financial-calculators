@@ -10,7 +10,6 @@ public class FinancialCalculators {
         // application for a financial organization
         // create set of financial calculators
         // prompt user to select which calculator
-
         System.out.println("What type of calculation would you like to make?\n\nPlease select one using the keyboard: \n(A)Mortgage Calculator \n(S)Future Value of Deposit \n(D)Present Value of Ordinary Annuity");
         String calculatorType = scanner.nextLine().toUpperCase();
         switch (calculatorType) {
@@ -24,14 +23,18 @@ public class FinancialCalculators {
                 // present value of annuity
                 annuityValue();
         }
-
-
-
-        // present value of ordinary annuity
     }
 
     public static void annuityValue() {
+        // present value of ordinary annuity
+        System.out.println("Monthly payout: ");
+        double payout = Double.parseDouble(scanner.nextLine());
 
+        System.out.println("Interest rate percentage: ");
+        double interestRate = Double.parseDouble(scanner.nextLine());
+
+        System.out.println("Years to pay out: ");
+        double yearsToPayout = Double.parseDouble(scanner.nextLine());
     }
 
     public static void mortgageCalculator() {
@@ -58,8 +61,10 @@ public class FinancialCalculators {
         // future value of deposit considering interest
         System.out.println("Deposit amount: ");
         double depositAmount = Double.parseDouble(scanner.nextLine());
+
         System.out.println("Interest rate percentage: ");
         double interestRate = Double.parseDouble(scanner.nextLine());
+
         System.out.println("Number of years: ");
         double years = Double.parseDouble(scanner.nextLine());
 
