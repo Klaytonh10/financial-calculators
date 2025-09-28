@@ -19,13 +19,19 @@ public class FinancialCalculators {
                 mortgageCalculator();
             case "S":
                 // future value of deposit
+                futureDepositValue();
             case "D":
                 // present value of annuity
+                annuityValue();
         }
 
 
-        // future value of deposit considering interest
+
         // present value of ordinary annuity
+    }
+
+    public static void annuityValue() {
+
     }
 
     public static void mortgageCalculator() {
@@ -46,5 +52,18 @@ public class FinancialCalculators {
         double n = loanLength * 12;
         double mortgage = principal * ((rate * Math.pow((1 + rate), n)) / (Math.pow((1 + rate), n) - 1));
         System.out.printf("Your monthly mortgage is $%.2f",mortgage/12);
+    }
+
+    public static void futureDepositValue() {
+        // future value of deposit considering interest
+        System.out.println("Deposit amount: ");
+        double depositAmount = Double.parseDouble(scanner.nextLine());
+        System.out.println("Interest rate percentage: ");
+        double interestRate = Double.parseDouble(scanner.nextLine());
+        System.out.println("Number of years: ");
+        double years = Double.parseDouble(scanner.nextLine());
+
+        double futureValue = depositAmount * (1 + Math.pow((interestRate/365),(365 * years)));
+        System.out.println(futureValue);
     }
 }
