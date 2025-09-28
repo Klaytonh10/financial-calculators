@@ -37,14 +37,14 @@ public class FinancialCalculators {
         System.out.print("Interest rate percentage: ");
         double interestRate = Double.parseDouble(scanner.nextLine());
         System.out.println(interestRate + "% \n");
-        interestRate = interestRate / 100;
+        double rate = interestRate / 100;
 
         System.out.print("Loan length in years: ");
         double loanLength = Double.parseDouble(scanner.nextLine());
         System.out.println(loanLength);
 
         double n = loanLength * 12;
-        double mortgage = principal * (interestRate * Math.pow((1 + interestRate), n)) / (Math.pow((1 + interestRate), n) - 1);
-        System.out.printf("Your monthly mortgage is $%.2f",mortgage);
+        double mortgage = principal * ((rate * Math.pow((1 + rate), n)) / (Math.pow((1 + rate), n) - 1));
+        System.out.printf("Your monthly mortgage is $%.2f",mortgage/12);
     }
 }
