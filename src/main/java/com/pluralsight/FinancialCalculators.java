@@ -16,12 +16,17 @@ public class FinancialCalculators {
             case "A":
                 // mortgage calc
                 mortgageCalculator();
+                break;
             case "S":
                 // future value of deposit
                 futureDepositValue();
+                break;
             case "D":
                 // present value of annuity
                 annuityValue();
+                break;
+            default:
+                System.out.println("Nope");
         }
     }
 
@@ -54,7 +59,8 @@ public class FinancialCalculators {
 
         double n = loanLength * 12;
         double mortgage = principal * ((rate * Math.pow((1 + rate), n)) / (Math.pow((1 + rate), n) - 1));
-        System.out.printf("Your monthly mortgage is $%.2f",mortgage/12);
+        System.out.printf("Your monthly mortgage is $%.2f \n",mortgage/12);
+        System.out.printf("Your total interest amount is $%.2f", (mortgage * loanLength) - principal);
     }
 
     public static void futureDepositValue() {
